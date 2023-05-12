@@ -1,3 +1,9 @@
+<?php
+
+include_once('config/config.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +23,7 @@
         <!-- Navbar -->
         <header id="main-header">
             <div class="banner">
-                <img src="img/baner.jpg" width="100%" height="100">
+                <img src="img/baner.png" width="100%" height="300">
             </div>
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,6 +44,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link disabled" href="contactanos.html">Contáctanos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-color" href="pages/login.html">Login</a>
                             </li>
                         </ul>
                         <form class="d-flex">
