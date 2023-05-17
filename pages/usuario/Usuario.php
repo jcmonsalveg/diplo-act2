@@ -1,7 +1,7 @@
 <?php
 
-include_once('./config/config.php');
-include('./config/Database.php');
+include_once('../../config/config.php');
+include('../../config/Database.php');
 
 
 class Usuario{
@@ -18,10 +18,10 @@ class Usuario{
         $usuario = $params['usuario'];
         $contrasena = $params['contrasena'];
         $nombres = $params['nombres'];
-        $apellidos = $params['apellido'];
+        $apellidos = $params['apellidos'];
         $email = $params['email'];    
         
-        $insert = " INSERT INTO usuarios VALUES (NULL, '$usuario', '$contrasena', ' $nombres', '$apellidos', '$email')";
+        $insert = " INSERT INTO usuarios VALUES (null,'$usuario', '$contrasena', ' $nombres', '$apellidos', '$email')";
 
         return mysqli_query($this->conexion, $insert);
         
