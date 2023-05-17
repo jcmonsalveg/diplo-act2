@@ -1,3 +1,14 @@
+<?php
+
+include_once('../../config/config.php');
+include('Usuario.php');
+
+$u = new Usuario();
+$data = $u->findAll();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,25 +16,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registrar usuarios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/servicios.css">
+    <link rel="stylesheet" href="../../css/add.css">
 </head>
 
 <body>
 
-    <div class="container">
 
+    <div class="container">
         <!-- Navbar -->
         <header id="main-header">
             <div class="banner">
-                <img src="../img/baner.png" width="100%" height="300">
+                <img src="../../img/baner.png" width="100%" height="300">
             </div>
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="../index.php">Inicio</a>
+                    <a class="navbar-brand" href="../../index.php">Inicio</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -35,13 +46,13 @@
                                 <a class="nav-link disabled" href="index.html">¿Quienes somos?</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color" href="#">Servicios</a>
+                                <a class="nav-link nav-color" href="../servicios.html">Servicios</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link disabled" href="contactanos.html">Contáctanos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-color" href="login.html">Login</a>
+                                <a class="nav-link nav-color" href="../login.html">Login</a>
                             </li>
                         </ul>
                         <form class="d-flex">
@@ -54,89 +65,50 @@
         </header>
         <!-- Navbar -->
 
-        <p>
-        <h1>Conoce nuestros servicios</h1>
-        </p>
+        <div class="row">
 
-        <div class="desarrollo">
-            <div class="container">
-                <div id="desarrollo-web">
-                    <h2>Desarrollo web</h2>
-                    <div class="row">
-                        <div class="col">
-                            En nuestra empresa, ofrecemos servicios de desarrollo web personalizados y adaptados a las
-                            necesidades de cada cliente. Contamos con un equipo de profesionales altamente capacitados
-                            en
-                            las últimas tecnologías de programación y diseño web, lo que nos permite crear sitios web
-                            modernos, atractivos y funcionales. Nos enfocamos en garantizar una excelente experiencia de
-                            usuario, optimizando la velocidad de carga, la navegación intuitiva y la accesibilidad en
-                            todo
-                            tipo de dispositivos. Además, trabajamos en colaboración con nuestros clientes en cada etapa
-                            del
-                            proyecto, desde la planificación hasta la implementación y el mantenimiento posterior, para
-                            asegurarnos de que el resultado final cumpla con todas sus expectativas y requerimientos
-                        </div>
-                        <div class="col">
-                            <img src="../img/desarrollo.jpg" class="img-fluid" alt="...">
+            <div class="col-lg-10 offset-lg-1">
+                <br>
+                <h3 class="mb-2 footer-links">Usuarios registrados</h3>
+                <br>
+                <table class="table  text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Celular</th>
+                            <th scope="col">Servicio</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Modificar</th>
+                            <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        while ($pt = mysqli_fetch_object($data)) {
+                            echo "<tr>";
+                            echo "<th scope='row'>$pt->id</th>";
+                            echo "<td>$pt->usuario</td>";
+                            echo "<td>$pt->nombres</td>";
+                            echo "<td>$pt->apellidos</td>";
+                            echo "<td>$pt->email</td>";
+                            echo "<td>$pt->celular</td>";
+                            echo "<td>$pt->servicio</td>";
+                            echo "<td>$pt->estado</td>";
+                            echo "<td><a class='btn btn-dark' href='#'> Modificar </a> </td>";
+                            echo "<td><a class='btn btn-danger' href='#'> Eliminar </a> </td>";
+                            echo "<tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
 
-                        </div>
-                    </div>
-                </div>
-                <div id="migra-tecno">
-                    <div class="h2-right">
-                        <p>
-                        <h2>Migración de tecnología</h2>
-                        </p>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <img src="../img/migracion.jpg" class="img-fluid" alt="...">
 
-                        </div>
-                        <div class="col">
-                            En nuestra empresa, ofrecemos servicios de migración de tecnología para ayudar a nuestros
-                            clientes a mantenerse actualizados en un mundo en constante evolución. Contamos con un
-                            equipo de
-                            expertos altamente capacitados en la migración de sistemas y aplicaciones a nuevas
-                            plataformas y
-                            tecnologías, lo que nos permite ofrecer soluciones eficientes y efectivas. Trabajamos en
-                            estrecha colaboración con nuestros clientes para comprender sus necesidades específicas y
-                            crear
-                            un plan personalizado de migración que minimice los tiempos de inactividad y maximice la
-                            eficiencia y la seguridad del sistema. Además, ofrecemos soporte continuo después de la
-                            migración para garantizar que todo funcione sin problemas y satisfacer las necesidades
-                            cambiantes de nuestros clientes
-                        </div>
 
-                    </div>
-                </div>
-                <div id="aser-empre">
-                    <p>
-                    <h2>Asesoría empresarial</h2>
-                    </p>
-                    <div class="row">
 
-                        <div class="col">
-                            En nuestra empresa, ofrecemos servicios de asesoría empresarial en tecnología para ayudar a
-                            nuestros clientes a tomar decisiones informadas sobre cómo utilizar la tecnología para
-                            mejorar
-                            su negocio. Contamos con un equipo de expertos en tecnología y negocios que pueden ayudar a
-                            identificar oportunidades y desafíos clave, así como a desarrollar estrategias efectivas y
-                            personalizadas para aprovechar al máximo la tecnología. Ya sea que necesite ayuda con la
-                            planificación estratégica, la optimización de procesos, la selección de software o cualquier
-                            otra cosa relacionada con la tecnología empresarial, nuestro equipo está aquí para brindarle
-                            el
-                            conocimiento y la experiencia que necesita para alcanzar el éxito. Trabajamos en estrecha
-                            colaboración con nuestros clientes para comprender sus necesidades y objetivos específicos,
-                            y
-                            para crear soluciones prácticas y rentables que los ayuden a alcanzarlos
-                        </div>
-                        <div class="col">
-                            <img src="../img/asesoria.jpg" class="img-fluid" alt="...">
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -215,7 +187,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>

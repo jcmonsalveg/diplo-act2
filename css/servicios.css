@@ -10,3 +10,7 @@
     text-align: left;
     display:inline-block;
 }
+
+.nav-color{
+    color: black !important;
+}
