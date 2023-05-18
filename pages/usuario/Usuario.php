@@ -32,13 +32,51 @@ class Usuario
 
     }
 
-    function findAll(){
+    function findAll()
+    {
 
         $sql = " SELECT * FROM  usuarios";
         return mysqli_query($this->conexion, $sql);
     }
 
+    function findOne($id)
+    {
+        $sql = " SELECT * FROM usuarios WHERE id = $id";
+        return mysqli_query($this->conexion, $sql);
+    }
 
+    function update($params)
+    {
+
+        $id = $params['id'];
+        $usuario = $params['usuario'];
+        $contrasena = $params['contrasena'];
+        $nombres = $params['nombres'];
+        $apellidos = $params['apellidos'];
+        $email = $params['email'];
+        $celular = $params['celular'];
+        $servicio = $params['servicio'];
+        $estado = "Registrado";
+
+        $sql = " UPDATE usuarios set usuario = '$usuario', contrasena= '$contrasena', nombres = '$nombres', apellidos='$apellidos', 
+        email='$email', celular='$celular', servicio='$servicio', estado='$estado' WHERE id=$id";
+
+        return mysqli_query($this->conexion, $sql);
+    }
+
+    function delete($id)
+    {
+        $sql = "DELETE FROM usuarios where id = $id";
+        return mysqli_query($this->conexion, $sql);
+    }
+
+    function login($params)
+    {
+        $usuario = $params['usuario'];
+        $contrasena = $params['contrasena'];
+        $sql = "SELECT * FROM usuarios WHERE usuario= '$usuario' AND contrasena='$contrasena'";
+        return mysqli_query($this->conexion, $sql);
+    }
 
 }
 

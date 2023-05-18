@@ -1,3 +1,9 @@
+<?php
+
+include_once('../config/config.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,51 +14,16 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/servicios.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/css/servicios.css">
 </head>
 
 <body>
 
     <div class="container">
 
-        <!-- Navbar -->
-        <header id="main-header">
-            <div class="banner">
-                <img src="../img/baner.png" width="100%" height="300">
-            </div>
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="../index.php">Inicio</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="index.html">¿Quienes somos?</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-color" href="#">Servicios</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="contactanos.html">Contáctanos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-color" href="login.html">Login</a>
-                            </li>
-                        </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <!-- Navbar -->
+        <?php
+        include('navbar.php')
+        ?>
 
         <p>
         <h1>Conoce nuestros servicios</h1>
